@@ -1,21 +1,21 @@
 <?php 
 //Load Homepage
 if( is_homepage() ){ 
-	include 'home.php';  
-	exit; }
+	view('home.php');
+}
 
 //Load Other pages
 if( match_url('about-us') ){
-	include 'about.php';
-	exit; }
+	view('about.php');
+}
 
 if( match_url('our-services') ){
-	include 'services.php';
-	exit; }
+	view('services.php');
+}
 
 if( match_url('post/{slug|s}/{id|i}') ){
-	include 'post.php';
-	exit; }
+	view('post.php');
+}
 
 /**
 * =====================================================================

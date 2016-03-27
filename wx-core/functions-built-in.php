@@ -61,6 +61,14 @@ function set_params($custom_route){
 	}
 }
 
+//load view
+function view($filename){
+	if( file_exists($filename) ){
+		include $filename;
+		exit;
+	}
+}
+
 /* Deprecated: possible future inclusion but needs revision
 Get and individual parameter from url
 function get_param($custom_route){
