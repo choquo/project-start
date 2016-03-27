@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+	#=========================================================================
+	#Core - URLs Friendly - DO NOT CHANGE ONLY IF YOU KNOW WHAT ARE YOU DOING.
+	#=========================================================================
+	RewriteEngine On
+	Options -Indexes
+
+	#-------------------------------------------------------------------------
+	#Use this section to Custom your URL's for individual files if you need
+	#-------------------------------------------------------------------------
+	RewriteRule ^individual-page/?$					individual-page.php
+	RewriteRule ^individual-page/(.*)/?$			individual-page.php?id=$1
+
+	#=========================================================================
+	#Core - URLs Friendly - DO NOT CHANGE ONLY IF YOU KNOW WHAT ARE YOU DOING.
+	#=========================================================================
+	#files and folders
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{SCRIPT_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ index.php [L,QSA]
+</IfModule>
