@@ -13,6 +13,10 @@ if( match_url('our-services') ){
 	view('services.php');
 }
 
+if( match_url('test') ){
+	view('prueba.php');
+}
+
 if( match_url('post/{slug|s}/{id|i}') ){
 	view('post.php');
 }

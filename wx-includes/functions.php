@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 //Idioma a usar (default español si no hay ninguno seleccionado)
 //Declara la variable $lang con un valor especifico para determinar el idioma actual
 if($_SESSION['lang']==''){ $_SESSION['lang']='es'; $lang='es'; }else{ $lang=$_SESSION['lang']; }
