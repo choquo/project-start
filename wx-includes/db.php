@@ -1,6 +1,6 @@
 <?php
 //Required files
-if( !WX_CONFIG ){ require '_config.php'; }
+if( !isset($_config) ){ require '_config.php'; }
 
 //Get database connection and set $database as current database access
 include $admin_dirname.'/conex.php';

@@ -1,5 +1,5 @@
 <?php 
-$config = true;
+$_config = true;
 /**
 * Define charset for plain-text outputs
 * This doesn't have nothing to do with database utf, the database utf is set in admin/classes/DatabaseClass.php

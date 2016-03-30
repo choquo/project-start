@@ -1,5 +1,5 @@
 <?php 
-define("WX_CONFIG", false);
+$_config = false;
 require '_config.php';
 
 //Load core files
