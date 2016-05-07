@@ -3,8 +3,8 @@ $_config = false;
 require '_config.php';
 
 //Load core files
-require $core_dirname.'/define-path.php';
-require $core_dirname.'/functions-built-in.php';
+require CORE_DIRNAME.'/define-path.php';
+require CORE_DIRNAME.'/functions-built-in.php';
 
 //Defaults
 //Put your database user and password into admin/conex.php

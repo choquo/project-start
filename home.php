@@ -1,20 +1,20 @@
 <?php 
-require 'wx-includes/db.php';
-require 'wx-includes/settings.php';
+require INCLUDES_DIRNAME.'/db.php';	//Acceso a la base de datos
+require INCLUDES_DIRNAME.'/settings.php'; //Datos de la tabla page_settings
+require INCLUDES_DIRNAME.'/functions.php'; //Funciones de uso general
 ?>
 
 <h1>Home</h1>
 
-<?php echo $base_href; ?>
+<?php echo BASE_HREF; ?>
 <br>
-<?php echo $uploads_url; ?>
+<?php echo UPLOADS_URL; ?>
 <br>
 <?php echo $settings['company_name']; ?>
 <br>
-<?php echo $current_url; ?>
+<?php echo CURRENT_URL; ?>
 <br>
-<?php echo $domain_name; ?>
-
+<?php echo DOMAIN_NAME; ?>
 <br>
 <?php 
 	$database->query("SELECT * FROM page_home");

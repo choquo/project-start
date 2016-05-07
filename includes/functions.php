@@ -1,5 +1,6 @@
 <?php 
 @session_start();
+
 //Idioma a usar (default español si no hay ninguno seleccionado)
 //Declara la variable $lang con un valor especifico para determinar el idioma actual
 if($_SESSION['lang']==''){ $_SESSION['lang']='es'; $lang='es'; }else{ $lang=$_SESSION['lang']; }
@@ -39,6 +40,33 @@ function get_coords($url){
 	}
 	return $coords;
 }
+
+
+/*========================================================
+┌─┐┌─┐┌┬┐   ┌┬┐┌─┐┌─┐  ┬  ┌─┐┌┬┐  ┬  ┌─┐┌┐┌   ┌─┐┌─┐┌─┐┌┬┐
+│ ┬├┤  │    │││├─┤├─┘  │  ├─┤ │   │  │ ││││   ┌─┘│ ││ ││││
+└─┘└─┘ ┴────┴ ┴┴ ┴┴    ┴─┘┴ ┴ ┴┘  ┴─┘└─┘┘└┘┘  └─┘└─┘└─┘┴ ┴
+To get map data from CMS in many flavors, only lat, only lon, only zoom, lat and lon.
+*/
+function get_map_lat_lon($string){
+    $map_data = explode("|",$string);
+	return $map_data[0];
+}
+function get_map_lat($string){
+	$map_data = explode("|",$string);
+	$map_latlon = explode(",",$map_data[0]);
+	return $map_latlon[0];
+}
+function get_map_lon($string){
+	$map_data = explode("|",$string);
+	$map_latlon = explode(",",$map_data[0]);
+	return $map_latlon[1];
+}
+function get_map_zoom($string){
+	$map_data = explode("|",$string);
+	return $map_data[1];
+}
+
 
 
 /*==============================
@@ -91,26 +119,6 @@ function trans($es, $en, $lang_choosed){
         return stripslashes($en);
     }    
 }
-
-
-/*==================================================
-┌─┐┌─┐┌┬┐┬ ┬   ┬   ┌─┐┬ ┬┬─┐┬─┐┌─┐┌┐┌┌┬┐   ┬ ┬┬─┐┬  
-├─┘├─┤ │ ├─┤  ┌┼─  │  │ │├┬┘├┬┘├┤ │││ │    │ │├┬┘│  
-┴  ┴ ┴ ┴ ┴ ┴  └┘   └─┘└─┘┴└─┴└─└─┘┘└┘ ┴────└─┘┴└─┴─┘
-*/
-//PATH
-//Obtiene la ruta del dominio _path y la ruta en la que se está navegando actualmente _path_browsing
-$base_domain = $_SERVER['HTTP_HOST'];  
-$base_uri = "//" . $base_domain . $_SERVER['PHP_SELF'];
-$base_path_info = pathinfo($base_uri);
-define("_path", $base_path_info['dirname']);
-define("_current_url", "//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-define("_base_href", $base_path_info['dirname']."/");
-$path = $base_path_info['dirname'];
-$current_url = "//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-$base_href = $base_path_info['dirname']."/";
-
-
 
 
 /*==========
@@ -222,7 +230,7 @@ function slice($cadena, $limite, $corte=" ", $pad="...") {
 └─┘┴ └─└─┘└─┘┴└─┴   ┴ 
 */
 //OBTENER RESUMEN DE PUBLICACION A PARTIR DE RECORTAR UNA CADENA DONDE APAREZCA EL PRIMER <-- pagebreak -->
-function excerpt($string){
+function get_excerpt($string){
     if( preg_match("/<!-- pagebreak -->/",$string,$output) ){
 		$excerpt_return = explode("<!-- pagebreak -->",stripslashes( $string ));
 		return $excerpt_return[0];
