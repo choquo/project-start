@@ -27,5 +27,5 @@ if( match_url('post/{slug|s}/{id|i}') ){
 * Do not remove anything below this line, keep this code at bottom.
 * =====================================================================
 */
-file_exists('404.php') ? include '404.php' : include $includes_dirname.'/defaults/errors/404.php';
+file_exists('404.php') ? include '404.php' : include INCLUDES_DIRNAME.'/defaults/errors/404.php';
 ?>
