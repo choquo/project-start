@@ -12,7 +12,19 @@ $install_dirname 	= dirname($_SERVER['PHP_SELF']); //The dirname where app is ru
 
 //Prepare routes (url_params are required by is_hompage() function )
 $requested_url_params = array();
-$requested_url = str_replace($install_dirname, '', $_SERVER['REQUEST_URI']); //Remove install dirname to get the real requested url: domain-name-com/[this] or domain-name-com/installdirname/[this]
+
+
+//Test if working on local or server
+$localip = array('127.0.0.1', "::1");
+if(in_array($_SERVER['REMOTE_ADDR'], $localip)){
+    //Running in local
+    $requested_url = str_replace($install_dirname, '', $_SERVER['REQUEST_URI']); //Remove install dirname to get the real requested url: domain-name-com/[this] or domain-name-com/installdirname/[this]
+}else{
+	//Working on server
+	$requested_url = $_SERVER['REQUEST_URI']; //Don't remove install dirname because this action can replace all "/" in path and make app crash
+}
+
+
 $requested_url = '/'.ltrim($requested_url,'/'); //Fix to work on localhost and online routes (remove /// and leave only one slash / )
 $requested_url_params = array_merge(array_filter(explode('/',$requested_url)));
 
