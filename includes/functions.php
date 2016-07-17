@@ -1,6 +1,9 @@
 <?php 
 @session_start();
 
+$base_domain = $_SERVER['HTTP_HOST'];  $base_uri = "http://" . $base_domain . $_SERVER['PHP_SELF']; $base_path_info = pathinfo($base_uri); 
+$base_href = $base_path_info['dirname'].'/';
+
 //Idioma a usar (default español si no hay ninguno seleccionado)
 //Declara la variable $lang con un valor especifico para determinar el idioma actual
 if($_SESSION['lang']==''){ $_SESSION['lang']='es'; $lang='es'; }else{ $lang=$_SESSION['lang']; }
