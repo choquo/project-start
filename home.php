@@ -1,5 +1,6 @@
 <?php 
-require INCLUDES_DIRNAME.'/db.php';	//Acceso a la base de datos
+//To access to database just use global $database this uses the index.php instance of database
+global $database;
 require INCLUDES_DIRNAME.'/settings.php'; //Datos de la tabla page_settings
 require INCLUDES_DIRNAME.'/functions.php'; //Funciones de uso general
 ?>

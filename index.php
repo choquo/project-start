@@ -5,8 +5,11 @@
 */
 header('Content-Type: text/html; charset=utf-8');
 
-//Define configuration vars
+//Define configuration environment vars
 require '_config.php';
+
+//Requires always a database connection
+require INCLUDES_DIRNAME.'/db.php';	//Acceso a la base de datos
 
 //Wake up Neo...
 require CORE_DIRNAME.'/init.php';  
