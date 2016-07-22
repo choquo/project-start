@@ -21,7 +21,7 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localip)){
     $requested_url = str_replace($install_dirname, '', $_SERVER['REQUEST_URI']); //Remove install dirname to get the real requested url: domain-name-com/[this] or domain-name-com/installdirname/[this]
 }else{
 	//Working on server
-	$requested_url = $_SERVER['REQUEST_URI']; //Don't remove install dirname because this action can replace all "/" in path and make app crash
+	$requested_url = str_replace(ltrim($install_dirname, '/'), '', $_SERVER['REQUEST_URI']);
 }
 
 
