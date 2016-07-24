@@ -10,6 +10,8 @@ require '_config.php';
 
 //Requires always a database connection
 require INCLUDES_DIRNAME.'/db.php';	//Acceso a la base de datos
+require INCLUDES_DIRNAME.'/settings.php'; //Datos de la tabla page_settings
+require INCLUDES_DIRNAME.'/functions.php'; //Funciones de uso general
 
 //Wake up Neo...
 require CORE_DIRNAME.'/init.php';  

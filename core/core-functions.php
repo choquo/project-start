@@ -63,6 +63,8 @@ function set_params($custom_route){
 
 //load view
 function view($filename){
+	global $database; //Para hacer global $database
+	global $settings; //Para hacer $settings global
 	if( file_exists($filename) ){
 		include $filename;
 		exit;

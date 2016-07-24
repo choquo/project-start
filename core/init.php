@@ -28,6 +28,6 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localip)){
 $requested_url = '/'.ltrim($requested_url,'/'); //Fix to work on localhost and online routes (remove /// and leave only one slash / )
 $requested_url_params = array_merge(array_filter(explode('/',$requested_url)));
 
-//Load content
+//Load content (se pasó al index.php) para hacer global $settings[''] de la tabla page_settings
 require '_routes.php';
 ?>
