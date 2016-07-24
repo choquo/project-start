@@ -14,7 +14,7 @@ if( match_url('our-services') ){
 }
 
 if( match_url('test') ){
-	view('prueba.php');
+	view('test.php');
 }
 
 if( match_url('post/{slug|s}/{id|i}') ){

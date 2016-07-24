@@ -4,9 +4,9 @@ $_config = true; //For validate !isset($_config) in external includes if var is 
 /**
 * Set constants to use globally
 */
-define('ADMIN_DIRNAME', 'admin');
+//define('ADMIN_DIRNAME', 'admin');
 define('CORE_DIRNAME', 'core');
 define('INCLUDES_DIRNAME', 'includes');
-define('UPLOADS_URL', ADMIN_DIRNAME.'/uploads');
+//define('UPLOADS_URL', ADMIN_DIRNAME.'/uploads');
 
 ?>

@@ -9,8 +9,6 @@ require INCLUDES_DIRNAME.'/functions.php'; //Funciones de uso general
 
 <?php echo BASE_HREF; ?>
 <br>
-<?php echo UPLOADS_URL; ?>
-<br>
 <?php echo $settings['company_name']; ?>
 <br>
 <?php echo CURRENT_URL; ?>
