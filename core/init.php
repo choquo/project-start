@@ -4,7 +4,7 @@ require '_config.php';
 
 //Load core files
 require CORE_DIRNAME.'/define-path.php';
-require CORE_DIRNAME.'/functions-built-in.php';
+require CORE_DIRNAME.'/core-functions.php';
 
 //Defaults
 //Put your database user and password into admin/conex.php
